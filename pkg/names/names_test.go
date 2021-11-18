@@ -50,6 +50,19 @@ func TestNames(t *testing.T) {
 		{"MultipartUpload", "MultipartUpload", "multipartUpload", "multipart_upload"},
 		{"Package", "Package", "package_", "package_"},
 		{"LdapServerMetadata", "LDAPServerMetadata", "ldapServerMetadata", "ldap_server_metadata"},
+		{"Http", "HTTP", "http", "http"},
+		{"Https", "HTTPS", "https", "https"},
+		// Cloudfront settings
+		{"HTTPPort", "HTTPPort", "httpPort", "http_port"},
+		{"HTTPSPort", "HTTPSPort", "httpsPort", "https_port"},
+		{"CloudFrontOriginAccessIdentity", "CloudFrontOriginAccessIdentity", "cloudFrontOriginAccessIdentity", "cloud_front_origin_access_identity"},
+		{"ACMCertificateArn", "ACMCertificateARN", "acmCertificateARN", "acm_certificate_arn"},
+		{"IcpRecordalStatus", "ICPRecordalStatus", "icpRecordalStatus", "icp_recordal_status"},
+		// Handle CNAME.
+		{"CNAME", "CNAME", "cname", "cname"},
+		{"Cname", "CNAME", "cname", "cname"},
+		{"CNAMEPrefix", "CNAMEPrefix", "cnamePrefix", "cname_prefix"},
+		{"MetricName", "MetricName", "metricName", "metric_name"},
 	}
 	for _, tc := range testCases {
 		n := names.New(tc.original)

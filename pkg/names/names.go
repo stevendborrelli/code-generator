@@ -46,7 +46,8 @@ var (
 		{"Ids", "IDs", "ids", nil},
 		// Need to prevent "Identifier" from becoming "IDentifier",
 		// and "Idle" from becoming "IDle"
-		{"Id", "ID", "id", regexp.MustCompile("Id(?!entifier|le)", regexp.None)},
+		// and "Identity" from becoming "IDentity"
+		{"Id", "ID", "id", regexp.MustCompile("Id(?!entifier|le|entity)", regexp.None)},
 		// Need to prevent "DbInstance" from becoming "dbinstance" when lower
 		// prefix-converted (should be dbInstance). Amazingly, even within just
 		// the RDS API, there are fields named "DbiResourceId",
@@ -69,6 +70,7 @@ var (
 		{"Ip", "IP", "ip", regexp.MustCompile("Ip(?!art)", regexp.None)},
 		// Easy find-and-replacements...
 		{"Acl", "ACL", "acl", nil},
+		{"Acm", "ACM", "acm", nil},
 		{"Acp", "ACP", "acp", nil},
 		{"Api", "API", "api", nil},
 		{"Arn", "ARN", "arn", nil},
@@ -77,6 +79,7 @@ var (
 		{"Az", "AZ", "az", nil},
 		{"Bgp", "BGP", "bgp", nil},
 		{"Cidr", "CIDR", "cidr", nil},
+		{"Cname", "CNAME", "cname", nil},
 		{"Cpu", "CPU", "cpu", nil},
 		{"Dhcp", "DHCP", "dhcp", nil},
 		{"Dns", "DNS", "dns", nil},
@@ -88,10 +91,12 @@ var (
 		{"Fpga", "FPGA", "fpga", nil},
 		{"Gpu", "GPU", "gpu", nil},
 		{"Html", "HTML", "html", nil},
-		{"Http", "HTTP", "http", nil},
+		// Cloudfront defines HTTPPort and HTTPSPort
+		{"Http", "HTTP", "http", regexp.MustCompile("H[tT][tT][pP](?![sS])", regexp.None)},
 		{"Https", "HTTPS", "https", nil},
 		{"Iam", "IAM", "iam", nil},
 		{"Icmp", "ICMP", "icmp", nil},
+		{"Icp", "ICP", "icp", nil},
 		{"Iops", "IOPS", "iops", nil},
 		{"Json", "JSON", "json", nil},
 		{"Jwt", "JWT", "jwt", nil},
